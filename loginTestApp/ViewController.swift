@@ -12,18 +12,25 @@ import FacebookLogin
 import FBSDKLoginKit
 
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, LoginButtonDelegate {
     
     var dict: [String : AnyObject]!
+    let loginButton = LoginButton(readPermissions: [ .publicProfile ])
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //creating button
-        let loginButton = LoginButton(readPermissions: [ .publicProfile ])
-        loginButton.center = view.center
+        loginButton.delegate = self
         
+        //creating button
+      
+        
+        
+        if let _ = FBSDKAccessToken.current(){
+            getFBUserData()
+        }
         //adding it to view
+        loginButton.center = view.center
         view.addSubview(loginButton)
     }
 
@@ -33,30 +40,49 @@ class ViewController: UIViewController {
     }
     
     @objc func loginButtonClicked() {
-        let loginManager = LoginManager()
-        loginManager.logIn(readPermissions: [.publicProfile], viewController: self, completion: { loginResult in
-            switch loginResult {
-            case .failed(let error):
-                print(error)
-            case .cancelled:
-                print("User cancelled login.")
-            case .success(let grantedPermissions, let declinedPermissions, let accessToken):
-                print(grantedPermissions, declinedPermissions, accessToken)
+        
+    }
+    
+    func loginButtonDidCompleteLogin(_ loginButton: LoginButton, result: LoginResult) {
                 self.getFBUserData()
-            }
-        })
+    }
+    
+    func loginButtonDidLogOut(_ loginButton: LoginButton) {
+        print("logged out")
     }
     
     //function is fetching the user data
     func getFBUserData(){
-        if((FBSDKAccessToken.current()) != nil){
-            FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, picture.type(large), email"]).start(completionHandler: { (connection, result, error) -> Void in
+        if (FBSDKAccessToken.current() != nil) {
+            FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, picture.type(large), email"]).start(completionHandler: { (connection, result, error) in
+                
+                if let error = error {
+                    print(error)
+                    return
+                }
+                
+                guard let resultData = result else {return}
+                
+                print(resultData)
+                
+                guard let returnDict = resultData as? [String: AnyObject] else {return}
+                
+                print(returnDict)
+                
+                self.dict = returnDict
+                
+                
+                
+            })
+                /*.start(completionHandler: { (connection, result, error) -> Void in
+                
+               
                 if (error == nil){
                     self.dict = result as! [String : AnyObject]
                     print(result!)
                     print(self.dict)
                 }
-            })
+            })*/
         }
     }
 
