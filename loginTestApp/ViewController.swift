@@ -88,7 +88,7 @@ class ViewController: UIViewController, LoginButtonDelegate {
                 
                 The thinking here was to check to see if the error existed, if it did not
                 then they went ahead and did the forced cast of the result to a dictionary
-                set it to our property at the top.  This can fail in a number of ways, and
+                and set it to our property at the top.  This can fail in a number of ways, and
                 is pretty dangerous.  While this probably will work 99% of the time (since we know that the data will largely
                 remain consistent from Facebook) it's better to have checks to make sure the app does not crash or have undefined
                 behavior.
