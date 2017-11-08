@@ -11,8 +11,17 @@ import Foundation
 import FacebookLogin
 import FBSDKLoginKit
 
+protocol DismissalDelegate : class {
+    func finishedShowing(_ viewController: UIViewController)
+}
 
-class ViewController: UIViewController, LoginButtonDelegate {
+protocol Dismissable : class
+{
+    weak var dismissalDelegate : DismissalDelegate? { get set }
+}
+
+
+class ViewController: UIViewController, LoginButtonDelegate, DismissalDelegate {
     
     var dict: [String : AnyObject]!
     var loginButton: LoginButton {
@@ -79,6 +88,12 @@ class ViewController: UIViewController, LoginButtonDelegate {
                 // We set our property at the top to returnDict
                 self.dict = returnDict
                 
+                OperationQueue.main.addOperation {
+                    let vc = ProfileViewController.makeProfileViewController(dictionary: self.dict)
+                    vc.dismissalDelegate = self
+                    self.present(vc, animated: true, completion: nil)
+                }
+                
             })
             
             /*
@@ -101,7 +116,18 @@ class ViewController: UIViewController, LoginButtonDelegate {
              
             })*/
         }
+    } // End of getFBUserData()
+    
+    func finishedShowing(_ viewController: UIViewController) {
+        if viewController.isBeingPresented && viewController.presentingViewController == self
+        {
+            self.dismiss(animated: true, completion: nil)
+            return
+        }
+        
+        self.navigationController?.popViewController(animated: true)
     }
-
 }
+
+
 

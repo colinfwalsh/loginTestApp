@@ -12,6 +12,8 @@
 		BDD08EF41FB37A3500DE4F02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDD08EF21FB37A3500DE4F02 /* Main.storyboard */; };
 		BDD08EF61FB37A3500DE4F02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDD08EF51FB37A3500DE4F02 /* Assets.xcassets */; };
 		BDD08EF91FB37A3500DE4F02 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDD08EF71FB37A3500DE4F02 /* LaunchScreen.storyboard */; };
+		BDD08F021FB3944B00DE4F02 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDD08F001FB3944B00DE4F02 /* ProfileViewController.swift */; };
+		BDD08F031FB3944B00DE4F02 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BDD08F011FB3944B00DE4F02 /* ProfileViewController.xib */; };
 		F076AFB465D1B28E6350B427 /* Pods_loginTestApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 742174F5AA3230CF4CEB51BB /* Pods_loginTestApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +28,8 @@
 		BDD08EF51FB37A3500DE4F02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BDD08EF81FB37A3500DE4F02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BDD08EFA1FB37A3500DE4F02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BDD08F001FB3944B00DE4F02 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		BDD08F011FB3944B00DE4F02 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +84,8 @@
 			children = (
 				BDD08EEE1FB37A3500DE4F02 /* AppDelegate.swift */,
 				BDD08EF01FB37A3500DE4F02 /* ViewController.swift */,
+				BDD08F001FB3944B00DE4F02 /* ProfileViewController.swift */,
+				BDD08F011FB3944B00DE4F02 /* ProfileViewController.xib */,
 				BDD08EF21FB37A3500DE4F02 /* Main.storyboard */,
 				BDD08EF51FB37A3500DE4F02 /* Assets.xcassets */,
 				BDD08EF71FB37A3500DE4F02 /* LaunchScreen.storyboard */,
@@ -152,6 +158,7 @@
 			files = (
 				BDD08EF91FB37A3500DE4F02 /* LaunchScreen.storyboard in Resources */,
 				BDD08EF61FB37A3500DE4F02 /* Assets.xcassets in Resources */,
+				BDD08F031FB3944B00DE4F02 /* ProfileViewController.xib in Resources */,
 				BDD08EF41FB37A3500DE4F02 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -211,6 +218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BDD08F021FB3944B00DE4F02 /* ProfileViewController.swift in Sources */,
 				BDD08EF11FB37A3500DE4F02 /* ViewController.swift in Sources */,
 				BDD08EEF1FB37A3500DE4F02 /* AppDelegate.swift in Sources */,
 			);
