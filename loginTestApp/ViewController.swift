@@ -89,6 +89,8 @@ class ViewController: UIViewController, LoginButtonDelegate, DismissalDelegate {
                 // We set our property at the top to returnDict
                 self.dict = returnDict
                 
+                // Push to the main thread so we don't lock up the app.  All UI Elements
+                // need to be updated on the main thread.
                 OperationQueue.main.addOperation {
                     let vc = ProfileViewController.makeProfileViewController(dictionary: self.dict)
                     vc.dismissalDelegate = self
@@ -119,6 +121,8 @@ class ViewController: UIViewController, LoginButtonDelegate, DismissalDelegate {
             })*/
         }
     } // End of getFBUserData()
+    
+    // This is the implementation of the delegate method in order to dismiss the ProfileViewController.  Notice how it's defined here, but called in the ProfileVC.  This is a common way of passing data back to the root VC in order to make UI Changes or modify data located at a previous VC.
     
     func finishedShowing(_ viewController: UIViewController) {
         if viewController.isBeingPresented && viewController.presentingViewController == self
