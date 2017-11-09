@@ -16,6 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let vc = ViewController(nibName: nil, bundle: nil)
+        let navVc = UINavigationController(rootViewController: vc)
+        self.window?.rootViewController = navVc
+        self.window?.makeKeyAndVisible()
+        
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
 

@@ -65,6 +65,7 @@ class ViewController: UIViewController, LoginButtonDelegate, DismissalDelegate {
     //function is fetching the user data
     func getFBUserData(){
         if (FBSDKAccessToken.current() != nil) {
+            // https://developers.facebook.com/docs/graph-api/reference/v2.2/page to see all fields
             FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, picture.type(large), email"]).start(completionHandler: { (connection, result, error) in
                 
                 // If we get an error, print it and then break out of the function
@@ -77,7 +78,7 @@ class ViewController: UIViewController, LoginButtonDelegate, DismissalDelegate {
                 guard let resultData = result else {return}
                 
                 // Print it to see what we get back
-                print(resultData)
+                //print(resultData)
                 
                 // Attempt to cast the result as a dictionary of <Key: String, Value: AnyObject> else break out of the function
                 guard let returnDict = resultData as? [String: AnyObject] else {return}
@@ -91,7 +92,8 @@ class ViewController: UIViewController, LoginButtonDelegate, DismissalDelegate {
                 OperationQueue.main.addOperation {
                     let vc = ProfileViewController.makeProfileViewController(dictionary: self.dict)
                     vc.dismissalDelegate = self
-                    self.present(vc, animated: true, completion: nil)
+                    
+                    self.navigationController?.pushViewController(vc, animated: true)
                 }
                 
             })

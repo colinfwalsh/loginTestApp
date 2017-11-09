@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,8 +22,9 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NAb-bL-KNG">
-                    <rect key="frame" x="67" y="74" width="240" height="150"/>
+                    <rect key="frame" x="112" y="74" width="150" height="150"/>
                     <constraints>
+                        <constraint firstAttribute="width" constant="150" id="G6h-17-agh"/>
                         <constraint firstAttribute="height" constant="150" id="RoG-JL-z4c"/>
                     </constraints>
                 </imageView>
@@ -33,14 +34,22 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8y8-IH-TOa">
+                    <rect key="frame" x="160" y="289" width="54" height="30"/>
+                    <state key="normal" title="Dismiss"/>
+                    <connections>
+                        <action selector="dismissView:" destination="-1" eventType="touchUpInside" id="uej-BK-C4A"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="NAb-bL-KNG" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="67" id="A9O-eF-06i"/>
+                <constraint firstItem="8y8-IH-TOa" firstAttribute="top" secondItem="05R-mJ-faV" secondAttribute="bottom" constant="29" id="3se-b3-pQW"/>
                 <constraint firstItem="NAb-bL-KNG" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="54" id="D3H-37-Du5"/>
                 <constraint firstItem="05R-mJ-faV" firstAttribute="top" secondItem="NAb-bL-KNG" secondAttribute="bottom" constant="15" id="HcP-7a-0Ys"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="NAb-bL-KNG" secondAttribute="trailing" constant="68" id="JlZ-7F-JH3"/>
+                <constraint firstItem="8y8-IH-TOa" firstAttribute="centerX" secondItem="05R-mJ-faV" secondAttribute="centerX" id="ZvX-Y9-GOk"/>
                 <constraint firstItem="05R-mJ-faV" firstAttribute="centerX" secondItem="NAb-bL-KNG" secondAttribute="centerX" id="lsg-Dl-Nyf"/>
+                <constraint firstItem="NAb-bL-KNG" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="luQ-gB-oqz"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
         </view>
